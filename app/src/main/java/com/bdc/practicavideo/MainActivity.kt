@@ -1,6 +1,5 @@
 package com.bdc.practicavideo
 
-import android.Manifest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,12 +8,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import com.bdc.practicavideo.controlvideo.ReproductorVideo
 import com.bdc.practicavideo.ui.theme.PracticaVideoTheme
-import com.bdc.practicavideo.ui.theme.screens.VideoPlayerScreen
-import com.bdc.practicavideo.ui.theme.screens.VideoRecorderScreen
+import com.bdc.practicavideo.ui.screens.VideoPlayerScreen
+import com.bdc.practicavideo.ui.screens.VideoRecorderConMediaStoreScreen
+import com.bdc.practicavideo.ui.screens.VideoRecorderScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,8 +35,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) { }
-                VideoPlayerScreen(reproductorVideo)
+                //VideoPlayerScreen(reproductorVideo)
                 //VideoRecorderScreen()
+                VideoRecorderConMediaStoreScreen()
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.bdc.practicavideo.ui.theme.components
+package com.bdc.practicavideo.ui.components
 
 import android.Manifest
 import android.content.pm.PackageManager

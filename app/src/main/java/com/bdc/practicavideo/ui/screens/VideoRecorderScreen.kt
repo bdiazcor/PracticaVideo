@@ -1,5 +1,6 @@
-package com.bdc.practicavideo.ui.theme.screens
+package com.bdc.practicavideo.ui.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,7 +9,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import com.bdc.practicavideo.controlvideo.rememberCapturaVideo
-import com.bdc.practicavideo.ui.theme.components.PermisoCamaraMicroUI
+import com.bdc.practicavideo.ui.components.PermisoCamaraMicroUI
 import java.io.File
 
 @Composable
@@ -30,10 +30,11 @@ fun VideoRecorderScreen() {
 
     // 1. EL CONTRATO: Registramos la intención de capturar vídeo (controlvideo/CapturaVideo.kt).
     //    El código dentro de las llaves se ejecutará solo al volver de la cámara.
-    val launcher = rememberCapturaVideo {
-        // Aquí puedes decirles: "¡Ya ha vuelto el vídeo!"
-        println("Vídeo capturado con éxito")
-    }
+    val launcher = rememberCapturaVideo (
+        onExito = {Toast.makeText(context, "Vídeo capturado con éxito", Toast.LENGTH_SHORT).show()},
+        onCancel = {Toast.makeText(context, "Vídeo capturado con éxito", Toast.LENGTH_SHORT).show()}
+    )
+
 
     Column(
         modifier = Modifier
